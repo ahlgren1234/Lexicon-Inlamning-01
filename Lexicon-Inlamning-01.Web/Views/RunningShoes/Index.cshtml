@@ -1,0 +1,26 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Lexicon_Inlamning_01.Web.Models
+@using Lexicon_Inlamning_01.Web.Controllers
+@model RunningShoe[]
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Running Shoes</title>
+        <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+    </head>
+    <body>
+        <div style="margin: 50px;">
+            <h2>Running Shoes</h2>
+            <ul>
+                @foreach (RunningShoe runningShoe in Model)
+            {
+                <li>
+                    <a asp-controller="RunningShoes" asp-action="Details" asp-route-id="@runningShoe.Id">@runningShoe.Name</a>
+                </li>
+            }
+        </ul>
+        <h3><a asp-controller="RunningShoes" asp-action="@nameof(RunningShoesController.Create)">Add New Shoe</a></h3>
+        </div>
+    </body>
+    </html>

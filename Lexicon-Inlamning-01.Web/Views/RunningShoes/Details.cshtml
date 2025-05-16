@@ -1,0 +1,20 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Lexicon_Inlamning_01.Web.Models.RunningShoe
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Running Shoe Details</title>
+        <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+    </head>
+    <body>
+        <div style="margin: 50px;">
+            <h2>Running Shoe Details</h2>
+            <h4>ID: <i>@Model.Id</i></h4>
+            <h4>Name: <i>@Model.Name</i></h4>
+            <h4>Price: <i>@Model.Price</i></h4>
+            <br />
+            <a asp-controller="RunningShoes" asp-action="Index"><- Back</a>
+        </div>
+    </body>
+    </html>
