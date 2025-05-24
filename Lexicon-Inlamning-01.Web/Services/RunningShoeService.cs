@@ -2,9 +2,9 @@
 
 namespace Lexicon_Inlamning_01.Web.Services;
 
-public class RunningShoeService
+public class RunningShoeService : IRunningShoeService
 {
-    List<RunningShoe> runningshoes =
+    readonly List<RunningShoe> shoes =
     [
         new RunningShoe()
         {
@@ -38,16 +38,16 @@ public class RunningShoeService
         },
     ];
 
-    public void Add(RunningShoe runningShoe)
+    public void Add(RunningShoe shoe)
     {
-        runningShoe.Id = runningshoes.Count < 0 ? 1 : runningshoes.Max(r => r.Id) + 1;
-        runningshoes.Add(runningShoe);
+        shoes.Add(shoe);
     }
 
-    public RunningShoe[] GetAll() => runningshoes
-        .OrderBy(r => r.Name)
-        .ToArray();
+    public List<RunningShoe> GetAll()
+    {
+        return shoes;
+    }
 
-    public RunningShoe GetById(int id) => runningshoes
+    public RunningShoe GetById(int id) => shoes
         .Single(r => r.Id == id);
 }
